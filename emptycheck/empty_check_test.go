@@ -10,9 +10,9 @@ import (
 	"github.com/google/uuid"
 )
 
-// go test -v -run ^TestEmptyCheck
+// go test -v -run ^TestEmptyCheck ./emptycheck
 
-// go test -v -run ^TestEmptyCheckIsStructFieldEmpty$
+// go test -v -run ^TestEmptyCheckIsStructFieldEmpty$ ./emptycheck
 func TestEmptyCheckIsStructFieldEmpty(t *testing.T) {
 	for _, v := range []struct {
 		v      reflect.Value
@@ -71,7 +71,7 @@ func TestEmptyCheckIsStructFieldEmpty(t *testing.T) {
 	}
 }
 
-// go test -v -run ^TestEmptyCheck$
+// go test -v -run ^TestEmptyCheck$ ./emptycheck
 func TestEmptyCheck(t *testing.T) {
 	testutil.AssertEqual(t, EmptyCheck(Ptr(struct {
 		A *int
