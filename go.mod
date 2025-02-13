@@ -1,4 +1,4 @@
-module empty-check
+module github.com/megur0/empty-check
 
 go 1.23.1
 
