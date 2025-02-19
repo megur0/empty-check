@@ -43,8 +43,9 @@ func TestEmptyCheckIsStructFieldEmpty(t *testing.T) {
 			expect: false,
 		},
 		{
-			v:      reflect.ValueOf(false),
-			expect: true,
+			v: reflect.ValueOf(false),
+			// boolは常に許容する
+			expect: false,
 		},
 		{
 			v:      reflect.ValueOf(time.Time{}),
@@ -167,11 +168,11 @@ func TestEmptyCheck(t *testing.T) {
 		Child: testTypeStructChild{
 			Arr: []string{"", ""},
 			Child: testTypeStructChildChild{
-				B: false,
+				B: 0,
 			},
 			Child2: []testTypeStructChildChild2{
 				{
-					C: true,
+					C: 1,
 				},
 			},
 		},
@@ -185,11 +186,11 @@ func TestEmptyCheck(t *testing.T) {
 		Child: testTypeStructChild{
 			Arr: []string{"", ""},
 			Child: testTypeStructChildChild{
-				B: true,
+				B: 1,
 			},
 			Child2: []testTypeStructChildChild2{
 				{
-					C: false,
+					C: 0,
 				},
 			},
 		},
@@ -219,11 +220,11 @@ type testTypeStructChild struct {
 }
 
 type testTypeStructChildChild struct {
-	B bool
+	B int
 }
 
 type testTypeStructChildChild2 struct {
-	C bool
+	C int
 }
 
 func Ptr[T any](a T) *T {
