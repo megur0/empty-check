@@ -115,6 +115,7 @@ type Emptiable interface {
 	IsEmpty() bool
 }
 
+// boolについては含めていない。
 func isStructFieldEmpty(rv reflect.Value) bool {
 	if rv.Kind() == reflect.Ptr {
 		return rv.IsNil()
@@ -138,8 +139,6 @@ func isStructFieldEmpty(rv reflect.Value) bool {
 		return v == 0
 	case float64:
 		return v == 0
-	case bool:
-		return !v
 	case uuid.UUID:
 		return v == uuid.Nil
 	case Zeroable:
