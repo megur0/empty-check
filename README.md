@@ -1,4 +1,4 @@
-# empty-checkパッケージ
+# emptycheckパッケージ
 
 ##  構造体の各フィールドのemptyチェックをする
 * デフォルト値である場合にemptyと判定する
